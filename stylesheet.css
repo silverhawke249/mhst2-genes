@@ -258,7 +258,7 @@ input[type=text] {
 .monstie-entry>img {
     width: 48px;
 }
-.monstie-entry>div {
+.monstie-entry>div:last-child {
     width: 192px;
     font-size: 18px;
     font-weight: bold;
@@ -284,13 +284,22 @@ input[type=text] {
     width: 64px;
     margin: 0;
 }
+.monstie-entry .egg-display>img {
+    width: auto;
+    height: 64px;
+    margin: 0;
+}
 #eggBaseImg {
     position: absolute;
+    top: 0;
+    left: 0;
     filter: url('#eggColor1');
     z-index: 1;
 }
 #eggOverlayImg {
     position: absolute;
+    top: 0;
+    left: 0;
     filter: url('#eggColor2');
     z-index: 2;
 }

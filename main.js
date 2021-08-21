@@ -373,13 +373,22 @@ function updateGeneHaver() {
 		if (at === bt) return b[1][0] - a[1][0];
 		return bt - at;
 	});
-	for (let monstie of monsties) {
+	for (let [ctr, monstie] of Object.entries(monsties)) {
 		let monstieEntry = document.GeneBrowser_monstieDB[monstie[0]];
 		let d, container = document.createElement('div');
 		container.classList.add('gene-haver-entry');
 		d = document.createElement('div');
 		d.classList.add('monstie-entry');
-		d.innerHTML = `<img src="img/monstie/${monstie[0]}.png"><div>${monstieEntry.name}</div>`;
+		{
+			let a = document.createElement('div');
+			let c1, c2;
+			c1 = hexToRgb(monstieEntry.eggColor1);
+			c2 = hexToRgb(monstieEntry.eggColor2);
+			a.classList.add('egg-display');
+			a.innerHTML = `<img draggable="false" src="img/egg_border.png"><img draggable="false" id="eggBaseImg" src="img/egg_base.png" style="filter: url(#entry${ctr}color1);"><img draggable="false" id="eggOverlayImg" src="img/egg${monstieEntry.eggType}.png" style="filter: url(#entry${ctr}color2);"><svg xmlns="http://www.w3.org/2000/svg" height=0 width=0><defs><filter id="entry${ctr}color1" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 ${c1.r / 255}\n0 0 0 0 ${c1.g / 255}\n0 0 0 0 ${c1.b / 255}\n0 0 0 1 0\n"/></filter><filter id="entry${ctr}color2" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 ${c2.r / 255}\n0 0 0 0 ${c2.g / 255}\n0 0 0 0 ${c2.b / 255}\n0 0 0 1 0"/></filter></defs></svg>`;
+			d.appendChild(a);
+		}
+		d.innerHTML += `<div>${monstieEntry.name}</div>`;
 		d.setAttribute('data-value', monstieEntry.name);
 		d.setAttribute('tabindex', 0);
 		clickAndEnter(d, function() {

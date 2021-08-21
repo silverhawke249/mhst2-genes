@@ -277,9 +277,22 @@ input[type=text] {
     align-items: center;
     justify-content: end;
 }
+.egg-display {
+    position: relative;
+}
 .egg-display>img {
     width: 64px;
     margin: 0;
+}
+#eggBaseImg {
+    position: absolute;
+    filter: url('#eggColor1');
+    z-index: 1;
+}
+#eggOverlayImg {
+    position: absolute;
+    filter: url('#eggColor2');
+    z-index: 2;
 }
 .gene-entry {
     width: 240px;

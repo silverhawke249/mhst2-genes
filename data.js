@@ -5661,446 +5661,624 @@ document.GeneBrowser_monstieDB = {
     "1": {
         name: "Aptonoth",
         type: "Power",
-        eggId: 12
+        eggType: 0,
+        eggColor1: "719E17",
+        eggColor2: "6F5F5F"
     },
     "5": {
         name: "Velocidrome",
         type: "Speed",
-        eggId: 1
+        eggType: 1,
+        eggColor1: "27B7FF",
+        eggColor2: "FF7946"
     },
     "6": {
         name: "Kulu-Ya-Ku",
         type: "Technical",
-        eggId: 144
+        eggType: 1,
+        eggColor1: "FFE6C4",
+        eggColor2: "FF7B62"
     },
     "9": {
         name: "Yian Kut-Ku",
         type: "Technical",
-        eggId: 10
+        eggType: 1,
+        eggColor1: "FD65D7",
+        eggColor2: "146BEF"
     },
     "11": {
         name: "Bulldrome",
         type: "Power",
-        eggId: 55
+        eggType: 3,
+        eggColor1: "9A5F3D",
+        eggColor2: "DEB071"
     },
     "12": {
         name: "Pukei-Pukei",
         type: "Technical",
-        eggId: 110
+        eggType: 1,
+        eggColor1: "229616",
+        eggColor2: "E8DA9F"
     },
     "13": {
         name: "Apceros",
         type: "Power",
-        eggId: 42
+        eggType: 0,
+        eggColor1: "FF6A27",
+        eggColor2: "FECF77"
     },
     "18": {
         name: "Great Jaggi",
         type: "Technical",
-        eggId: 43
+        eggType: 1,
+        eggColor1: "AE6DFF",
+        eggColor2: "FF5454"
     },
     "20": {
         name: "Royal Ludroth",
         type: "Power",
-        eggId: 29
+        eggType: 7,
+        eggColor1: "6DED16",
+        eggColor2: "FFDA00"
     },
     "22": {
         name: "Arzuros",
         type: "Power",
-        eggId: 20
+        eggType: 3,
+        eggColor1: "5C70F3",
+        eggColor2: "03BF77"
     },
     "23": {
         name: "Qurupeco",
         type: "Technical",
-        eggId: 63
+        eggType: 1,
+        eggColor1: "ACF461",
+        eggColor2: "D06AFC"
     },
     "24": {
         name: "Blue Yian Kut-Ku",
         type: "Technical",
-        eggId: 11
+        eggType: 1,
+        eggColor1: "00D89F",
+        eggColor2: "FFD418"
     },
     "25": {
         name: "Tigrex",
         type: "Speed",
-        eggId: 14
+        eggType: 2,
+        eggColor1: "FF9300",
+        eggColor2: "1B6BD7"
     },
     "26": {
         name: "Monoblos",
         type: "Power",
-        eggId: 39
+        eggType: 2,
+        eggColor1: "FF740D",
+        eggColor2: "FF440B"
     },
     "27": {
         name: "Paolumu",
         type: "Technical",
-        eggId: 147
+        eggType: 2,
+        eggColor1: "F3E9DE",
+        eggColor2: "ED9A94"
     },
     "28": {
         name: "Basarios",
         type: "Technical",
-        eggId: 33
+        eggType: 2,
+        eggColor1: "F0D3AC",
+        eggColor2: "C58925"
     },
     "29": {
         name: "Yian Garuga",
         type: "Technical",
-        eggId: 37
+        eggType: 1,
+        eggColor1: "2E2088",
+        eggColor2: "E669BC"
     },
     "31": {
         name: "Nargacuga",
         type: "Speed",
-        eggId: 21
+        eggType: 2,
+        eggColor1: "473CA4",
+        eggColor2: "F6169B"
     },
     "32": {
         name: "Rathian",
         type: "Speed",
-        eggId: 2
+        eggType: 2,
+        eggColor1: "4CDA04",
+        eggColor2: "FFF299"
     },
     "33": {
         name: "Popo",
         type: "Power",
-        eggId: 41
+        eggType: 0,
+        eggColor1: "A4431D",
+        eggColor2: "FFB233"
     },
     "37": {
         name: "Congalala",
         type: "Technical",
-        eggId: 8
+        eggType: 3,
+        eggColor1: "FF61E8",
+        eggColor2: "4AE628"
     },
     "39": {
         name: "Great Baggi",
         type: "Speed",
-        eggId: 44
+        eggType: 1,
+        eggColor1: "2445FE",
+        eggColor2: "FFE81C"
     },
     "40": {
         name: "Kecha Wacha",
         type: "Technical",
-        eggId: 45
+        eggType: 3,
+        eggColor1: "FFA113",
+        eggColor2: "FF2E01"
     },
     "41": {
         name: "Gypceros",
         type: "Power",
-        eggId: 31
+        eggType: 1,
+        eggColor1: "0099CD",
+        eggColor2: "FF4D7E"
     },
     "43": {
         name: "Zamtrios",
         type: "Technical",
-        eggId: 62
+        eggType: 9,
+        eggColor1: "00B5B8",
+        eggColor2: "FF6B00"
     },
     "44": {
         name: "Nerscylla",
         type: "Technical",
-        eggId: 47
+        eggType: 8,
+        eggColor1: "8C00FF",
+        eggColor2: "E14747"
     },
     "45": {
         name: "Barroth",
         type: "Speed",
-        eggId: 56
+        eggType: 4,
+        eggColor1: "BA4900",
+        eggColor2: "FB891C"
     },
     "46": {
         name: "Tobi-Kadachi",
         type: "Speed",
-        eggId: 145
+        eggType: 5,
+        eggColor1: "AFD9E2",
+        eggColor2: "162630"
     },
     "47": {
         name: "Khezu",
         type: "Technical",
-        eggId: 23
+        eggType: 2,
+        eggColor1: "A9ECF3",
+        eggColor2: "FE6A80"
     },
     "48": {
         name: "Red Khezu",
         type: "Technical",
-        eggId: 24
+        eggType: 2,
+        eggColor1: "D30607",
+        eggColor2: "F3B0B0"
     },
     "51": {
         name: "Lagombi",
         type: "Speed",
-        eggId: 19
+        eggType: 3,
+        eggColor1: "E8EEC1",
+        eggColor2: "954DC0"
     },
     "52": {
         name: "Jade Barroth",
         type: "Power",
-        eggId: 57
+        eggType: 4,
+        eggColor1: "00888A",
+        eggColor2: "1CFBEC"
     },
     "53": {
         name: "Anjanath",
         type: "Power",
-        eggId: 140
+        eggType: 4,
+        eggColor1: "F3548A",
+        eggColor2: "1D0C1D"
     },
     "54": {
         name: "Gammoth",
         type: "Power",
-        eggId: 138
+        eggType: 3,
+        eggColor1: "0F1D52",
+        eggColor2: "9F1000"
     },
     "55": {
         name: "Zinogre",
         type: "Speed",
-        eggId: 53
+        eggType: 5,
+        eggColor1: "00D9BB",
+        eggColor2: "FFCC00"
     },
     "56": {
         name: "Barioth",
         type: "Speed",
-        eggId: 58
+        eggType: 2,
+        eggColor1: "F4EDB3",
+        eggColor2: "FF7200"
     },
     "57": {
         name: "Legiana",
         type: "Speed",
-        eggId: 149
+        eggType: 2,
+        eggColor1: "F5E1A4",
+        eggColor2: "091242"
     },
     "65": {
         name: "Iodrome",
         type: "Speed",
-        eggId: 13
+        eggType: 1,
+        eggColor1: "FA4848",
+        eggColor2: "9F1B88"
     },
     "67": {
         name: "Gendrome",
         type: "Speed",
-        eggId: 27
+        eggType: 1,
+        eggColor1: "74E402",
+        eggColor2: "FFA10E"
     },
     "69": {
         name: "Cephadrome",
         type: "Speed",
-        eggId: 28
+        eggType: 6,
+        eggColor1: "585C32",
+        eggColor2: "FF4D0D"
     },
     "70": {
         name: "Ash Kecha Wacha",
         type: "Technical",
-        eggId: 46
+        eggType: 3,
+        eggColor1: "CCD8F8",
+        eggColor2: "FD693E"
     },
     "71": {
         name: "Purple Gypceros",
         type: "Power",
-        eggId: 32
+        eggType: 1,
+        eggColor1: "A9068B",
+        eggColor2: "2FD91E"
     },
     "72": {
         name: "Green Nargacuga",
         type: "Speed",
-        eggId: 22
+        eggType: 2,
+        eggColor1: "5AD700",
+        eggColor2: "E8FF19"
     },
     "73": {
         name: "Diablos",
         type: "Power",
-        eggId: 25
+        eggType: 2,
+        eggColor1: "E0BA8C",
+        eggColor2: "C77850"
     },
     "74": {
         name: "Black Diablos",
         type: "Power",
-        eggId: 26
+        eggType: 2,
+        eggColor1: "4A3F16",
+        eggColor2: "8C8769"
     },
     "75": {
         name: "White Monoblos",
         type: "Power",
-        eggId: 40
+        eggType: 2,
+        eggColor1: "D2CBB4",
+        eggColor2: "B19967"
     },
     "76": {
         name: "Crimson Qurupeco",
         type: "Technical",
-        eggId: 64
+        eggType: 1,
+        eggColor1: "FF3459",
+        eggColor2: "F8E500"
     },
     "77": {
         name: "Mizutsune",
         type: "Technical",
-        eggId: 112
+        eggType: 7,
+        eggColor1: "CD3958",
+        eggColor2: "E1DECB"
     },
     "78": {
         name: "Lagiacrus",
         type: "Power",
-        eggId: 65
+        eggType: 7,
+        eggColor1: "00C1D7",
+        eggColor2: "F4272F"
     },
     "79": {
         name: "Uragaan",
         type: "Power",
-        eggId: 60
+        eggType: 4,
+        eggColor1: "FFD400",
+        eggColor2: "A33506"
     },
     "82": {
         name: "Brute Tigrex",
         type: "Power",
-        eggId: 15
+        eggType: 2,
+        eggColor1: "604F30",
+        eggColor2: "FF9300"
     },
     "83": {
         name: "Purple Ludroth",
         type: "Power",
-        eggId: 30
+        eggType: 7,
+        eggColor1: "FF4CC5",
+        eggColor2: "FFBCFB"
     },
     "84": {
         name: "Ruby Basarios",
         type: "Technical",
-        eggId: 34
+        eggType: 2,
+        eggColor1: "5BC534",
+        eggColor2: "FF318D"
     },
     "85": {
         name: "Gravios",
         type: "Power",
-        eggId: 35
+        eggType: 2,
+        eggColor1: "FBE2C2",
+        eggColor2: "FF7200"
     },
     "92": {
         name: "Shrouded Nerscylla",
         type: "Technical",
-        eggId: 48
+        eggType: 8,
+        eggColor1: "CCD8F8",
+        eggColor2: "FFD400"
     },
     "93": {
         name: "Emerald Congalala",
         type: "Technical",
-        eggId: 9
+        eggType: 3,
+        eggColor1: "4AE628",
+        eggColor2: "FFA100"
     },
     "95": {
         name: "Black Gravios",
         type: "Power",
-        eggId: 36
+        eggType: 2,
+        eggColor1: "A22300",
+        eggColor2: "8A8074"
     },
     "96": {
         name: "Ivory Lagiacrus",
         type: "Power",
-        eggId: 66
+        eggType: 7,
+        eggColor1: "E8F178",
+        eggColor2: "2169FF"
     },
     "97": {
         name: "Brachydios",
         type: "Power",
-        eggId: 52
+        eggType: 4,
+        eggColor1: "1536DB",
+        eggColor2: "35FF00"
     },
     "98": {
         name: "Nergigante",
         type: "Power",
-        eggId: 111
+        eggType: 10,
+        eggColor1: "0E0E0B",
+        eggColor2: "D33C06"
     },
     "99": {
         name: "Astalos",
         type: "Technical",
-        eggId: 113
+        eggType: 2,
+        eggColor1: "212713",
+        eggColor2: "88D203"
     },
     "100": {
         name: "Glavenus",
         type: "Power",
-        eggId: 81
+        eggType: 4,
+        eggColor1: "003A7D",
+        eggColor2: "DB1D00"
     },
     "102": {
         name: "Bazelgeuse",
         type: "Speed",
-        eggId: 151
+        eggType: 2,
+        eggColor1: "C5BCB4",
+        eggColor2: "231D1D"
     },
     "107": {
         name: "Sand Barioth",
         type: "Speed",
-        eggId: 59
+        eggType: 2,
+        eggColor1: "FF7E00",
+        eggColor2: "FF3636"
     },
     "108": {
         name: "Deviljho",
         type: "Power",
-        eggId: 51
+        eggType: 4,
+        eggColor1: "28AA00",
+        eggColor2: "F83A1D"
     },
     "109": {
         name: "Stygian Zinogre",
         type: "Technical",
-        eggId: 54
+        eggType: 5,
+        eggColor1: "4019D2",
+        eggColor2: "EDE1A4"
     },
     "110": {
         name: "Seregios",
         type: "Technical",
-        eggId: 38
+        eggType: 2,
+        eggColor1: "FFCB0D",
+        eggColor2: "FF4515"
     },
     "112": {
         name: "Rathalos",
         type: "Power",
-        eggId: 5
+        eggType: 2,
+        eggColor1: "F24820",
+        eggColor2: "314C99"
     },
     "113": {
         name: "Azure Rathalos",
         type: "Power",
-        eggId: 6
+        eggType: 2,
+        eggColor1: "00BDFF",
+        eggColor2: "026676"
     },
     "114": {
         name: "Pink Rathian",
         type: "Speed",
-        eggId: 3
+        eggType: 2,
+        eggColor1: "FF6D83",
+        eggColor2: "EC1A1A"
     },
     "115": {
         name: "Fulgur Anjanath",
         type: "Power",
-        eggId: 141
+        eggType: 4,
+        eggColor1: "D0C9C9",
+        eggColor2: "CD3D03"
     },
     "116": {
         name: "Silverwind Nargacuga",
         type: "Speed",
-        eggId: 123
+        eggType: 2,
+        eggColor1: "283D74",
+        eggColor2: "E7F4DF"
     },
     "117": {
         name: "Thunderlord Zinogre",
         type: "Power",
-        eggId: 128
+        eggType: 5,
+        eggColor1: "A2FD32",
+        eggColor2: "FD9930"
     },
     "118": {
         name: "Bloodbath Diablos",
         type: "Speed",
-        eggId: 119
+        eggType: 2,
+        eggColor1: "E6D28E",
+        eggColor2: "162FA7"
     },
     "119": {
         name: "Grimclaw Tigrex",
         type: "Power",
-        eggId: 121
+        eggType: 2,
+        eggColor1: "FF850C",
+        eggColor2: "0D468C"
     },
     "120": {
         name: "Dreadqueen Rathian",
         type: "Speed",
-        eggId: 117
+        eggType: 2,
+        eggColor1: "34152E",
+        eggColor2: "84A120"
     },
     "121": {
         name: "Kirin",
         type: "Speed",
-        eggId: 49
+        eggType: 10,
+        eggColor1: "C7EAFF",
+        eggColor2: "0058FF"
     },
     "122": {
         name: "Teostra",
         type: "Power",
-        eggId: 86
+        eggType: 10,
+        eggColor1: "DB0505",
+        eggColor2: "380574"
     },
     "123": {
         name: "Rajang",
         type: "Power",
-        eggId: 84
+        eggType: 3,
+        eggColor1: "2D1717",
+        eggColor2: "844C44"
     },
     "124": {
         name: "Kushala Daora",
         type: "Technical",
-        eggId: 85
+        eggType: 10,
+        eggColor1: "251009",
+        eggColor2: "E15A01"
     },
     "125": {
         name: "Velkhana",
         type: "Technical",
-        eggId: 153
+        eggType: 10,
+        eggColor1: "698DD1",
+        eggColor2: "C4D8E0"
     },
     "126": {
         name: "Boltreaver Astalos",
         type: "Technical",
-        eggId: 114
+        eggType: 2,
+        eggColor1: "26350E",
+        eggColor2: "1CAE21"
     },
     "127": {
         name: "Hellblade Glavenus",
         type: "Power",
-        eggId: 136
+        eggType: 4,
+        eggColor1: "210F29",
+        eggColor2: "D71C12"
     },
     "136": {
         name: "Palamute (Non-Elem)",
         type: "Speed",
-        eggId: 176
+        eggType: 11,
+        eggColor1: "FCECCE",
+        eggColor2: "4A59B4"
     },
     "137": {
         name: "Palamute (Fire)",
         type: "Speed",
-        eggId: 177
+        eggType: 11,
+        eggColor1: "FCECCE",
+        eggColor2: "FF5F46"
     },
     "138": {
         name: "Palamute (Water)",
         type: "Speed",
-        eggId: 178
+        eggType: 11,
+        eggColor1: "FCECCE",
+        eggColor2: "37BBF2"
     },
     "139": {
         name: "Palamute (Thunder)",
         type: "Speed",
-        eggId: 179
+        eggType: 11,
+        eggColor1: "FCECCE",
+        eggColor2: "C1E547"
     },
     "140": {
         name: "Palamute (Ice)",
         type: "Speed",
-        eggId: 180
+        eggType: 11,
+        eggColor1: "FCECCE",
+        eggColor2: "97FBD8"
     },
     "141": {
         name: "Palamute (Dragon)",
         type: "Speed",
-        eggId: 181
+        eggType: 11,
+        eggColor1: "FCECCE",
+        eggColor2: "B60720"
     }
 }

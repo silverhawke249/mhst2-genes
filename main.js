@@ -33,13 +33,29 @@ function init() {
 	createDropdown(document.querySelector('#geneElemSelection'), ['---', 'Non-Elem', 'Fire', 'Water', 'Thunder', 'Ice', 'Dragon'], 'element');
 	// Load stuff from storage, and check args
 	loadLocalStorage();
-	applyParams();
-	updatePermalinkAndStorage();
+	if (!applyParams()) {
+		const lastPage = window.localStorage.getItem('lastPage');
+		switch (lastPage) {
+			case "0":
+				document.querySelector('[data-page="geneBrowser"]').click();
+				break;
+			case "1":
+				document.querySelector('[data-page="monstieBrowser"]').click();
+				break;
+			case "2":
+				document.querySelector('[data-page="geneFilter"]').click();
+				break;
+			case "3":
+				document.querySelector('[data-page="genesLookup"]').click();
+				break;
+		}
+	};
+	// No need to execute this because clicking button tabs already does it anyway
+	// updatePermalinkAndStorage();
 }
 
 function loadLocalStorage() {
 	const storage = window.localStorage;
-	// const lastPage = storage.getItem('lastPage');
 	// Update first page
 	document.querySelector('#geneInput1').value = storage.getItem('geneInput') || '';
 	document.querySelector('#geneInput1').dispatchEvent(new Event('input'));
@@ -72,22 +88,6 @@ function loadLocalStorage() {
 		geneList.appendChild(geneNode);
 	}
 	updateGeneHaver();
-	/* Click only when everything is in place
-	switch (lastPage) {
-		case "0":
-			document.querySelector('[data-page="geneBrowser"]').click();
-			break;
-		case "1":
-			document.querySelector('[data-page="monstieBrowser"]').click();
-			break;
-		case "2":
-			document.querySelector('[data-page="geneFilter"]').click();
-			break;
-		case "3":
-			document.querySelector('[data-page="genesLookup"]').click();
-			break;
-	}
-	*/
 }
 
 function applyParams() {
@@ -120,7 +120,7 @@ function applyParams() {
 			break;
 		case "3":
 			let geneList = document.querySelector('#includedGeneList');
-			for (const geneId of content.split(',')) {
+			for (const geneId of decodeString(content).map(x => x.toString())) {
 				if (document.querySelector(`[data-value="${geneId}"]`)) continue;
 				let geneEntry = document.GeneBrowser_geneDB[geneId];
 				if (geneEntry === undefined) continue;
@@ -139,8 +139,9 @@ function applyParams() {
 			document.querySelector('[data-page="genesLookup"]').click();
 			break;
 		default:
-			return;
+			return false;
 	}
+	return true;
 }
 
 function updatePermalinkAndStorage() {
@@ -166,8 +167,8 @@ function updatePermalinkAndStorage() {
 			break;
 		case 'genesLookup':
 			pageNum = 3;
-			content = [...document.querySelectorAll('#includedGeneList>.gene-entry')].map(x => x.getAttribute('data-value'));
-			content = content.join(',');
+			content = [...document.querySelectorAll('#includedGeneList>.gene-entry')].map(x => parseInt(x.getAttribute('data-value'), 10));
+			content = encodeList(content);
 			break;
 		default:
 			pageNum = 0;
@@ -309,7 +310,17 @@ function monstieInputListener() {
 	document.querySelector('#selectedMonstieTypeIcon').classList.remove('power', 'speed', 'technical');
 	document.querySelector('#selectedMonstieTypeIcon').classList.add(monstieEntry.type.toLowerCase());
 	document.querySelector('#selectedMonstieType').innerText = monstieEntry.type;
-	document.querySelector('.egg-display').firstChild.src = `https://cdn.kiranico.net/file/kiranico/mhstories-web/eggs/buddy_${monstieEntry.eggId}.png`;
+	let eggBaseColor = hexToRgb(monstieEntry.eggColor1);
+	document.querySelector('#eggColor1 feColorMatrix').setAttribute('values', `0 0 0 0 ${eggBaseColor.r / 255}
+																			   0 0 0 0 ${eggBaseColor.g / 255}
+																			   0 0 0 0 ${eggBaseColor.b / 255}
+																			   0 0 0 1 0`);
+	let eggOverlayColor = hexToRgb(monstieEntry.eggColor2);
+	document.querySelector('#eggOverlayImg').src = `img/egg${monstieEntry.eggType}.png`;
+	document.querySelector('#eggColor2 feColorMatrix').setAttribute('values', `0 0 0 0 ${eggOverlayColor.r / 255}
+																			   0 0 0 0 ${eggOverlayColor.g / 255}
+																			   0 0 0 0 ${eggOverlayColor.b / 255}
+																			   0 0 0 1 0`);
 	// Update gene list
 	monstieId = parseInt(monstieId, 10);
 	let inherentGeneList = document.querySelector('#inherentGeneList');
@@ -647,4 +658,37 @@ function clickAndEnter(el, func) {
 		e.preventDefault();
 		func.call(this, e);
 	});
+}
+
+function encodeList(s) {
+	const enc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+	let out, prefix = [];
+	quatern = s.map(x => x.toString(3)).join('3');
+	while ((quatern.length + prefix.length) % 3) prefix.push('0');
+	quatern = prefix.join('') + quatern;
+	out = [];
+	for (let i=0; i<quatern.length; i+=3) {
+		let subs = quatern.substring(i, i + 3);
+		out.push(enc[parseInt(subs, 4)]);
+	}
+	return out.join('');
+}
+
+function decodeString(s) {
+	const enc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+	s = s.split('');
+	let out = [];
+	for (const e of s) {
+		let idx = enc.indexOf(e);
+		let dec = idx.toString(4);
+		let pad = 0;
+		while ((dec.length + pad) % 3) {
+			out.push('0');
+			pad++;
+		}
+		out.push(dec);
+	}
+	out = out.join('');
+	out = out.split('3');
+	return out.map(x => parseInt(x, 3));
 }

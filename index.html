@@ -9,17 +9,18 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="color.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="MHST2 | Gene Browser" />
 	<meta name="twitter:creator" content="@fluffderg">
 	<meta name="twitter:description" content="Helper on Book of Genes completion. Also external browser for Book of Genes." />
-	<meta name="twitter:image" content="https://silverhawke.xyz/common/tornatic.png" />
+	<meta name="twitter:image" content="https://silverhawke.xyz/mhst2-genes/favicon.png" />
 </head>
 <body onload="init();">
 	<div class="container">
 		<div class="title">Book of Genes</div>
-		<div class="footnote">data from <a href="https://mhst.kiranico.com/mhs2" target=_blank>Kiranico's DB</a> | made by <a href="https://twitter.com/fluffderg" target=_blank>@fluffderg</a> | <span><a id='permalink' href='?' target=_blank>permalink</a><div class="copy-text hidden">Copied!</div></span> for current page</div>
+		<div class="footnote">data from <a href="https://mhst.kiranico.com/mhs2" target=_blank>Kiranico's DB</a> | made by <a href="https://twitter.com/fluffderg" target=_blank>@fluffderg</a> | <span><a id="permalink" href="?" target=_blank title="Click to copy!">permalink</a><div class="copy-text hidden">Copied!</div></span> for current page</div>
 		<div class="button-menu">
 			<div class="button selected" tabindex=0 data-page="geneBrowser">Gene browser</div>
 			<div class="button" tabindex=0 data-page="monstieBrowser">Monstie browser</div>
@@ -67,7 +68,11 @@
 							<div class="info-field"><div id="selectedMonstieTypeIcon" class="icon-wrapper"><div class="type-icon"></div></div><div id="selectedMonstieType" class="left-margin">---</div></div>
 						</div>
 						<div class="monstie-col-2">
-							<div class="info-field egg-display"><img src="https://cdn.kiranico.net/file/kiranico/mhstories-web/eggs/buddy_114.png"></div>
+							<div class="info-field egg-display">
+								<img draggable="false" src="img/egg_border.png">
+								<img draggable="false" id="eggBaseImg" src="img/egg_base.png">
+								<img draggable="false" id="eggOverlayImg" src="">
+							</div>
 							<div class="header">Egg</div>
 						</div>
 					</div>
@@ -129,5 +134,25 @@
 			</div>
 		</div>
 	</div>
+	<svg xmlns="http://www.w3.org/2000/svg" height=0 width=0>
+		<defs>
+			<filter id="eggColor1" color-interpolation-filters="sRGB">
+				<feColorMatrix type="matrix" values="
+					0 0 0 0 0.7
+					0 0 0 0 0.7
+					0 0 0 0 0.7
+					0 0 0 1 0
+				"/>
+			</filter>
+			<filter id="eggColor2" color-interpolation-filters="sRGB">
+				<feColorMatrix type="matrix" values="
+					0 0 0 0 1
+					0 0 0 0 1
+					0 0 0 0 1
+					0 0 0 1 0
+				"/>
+			</filter>
+		</defs>
+	</svg>
 </body>
 </html>

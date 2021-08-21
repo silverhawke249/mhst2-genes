@@ -36,6 +36,22 @@ body {
     font-size: 8pt;
     margin-bottom: 10px;
 }
+span {
+    position: relative;
+}
+.copy-text {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    translate: -50% 0;
+    display: inline;
+    border: 1px solid #777;
+    padding: 3px 5px;
+    background: #f1f1f1;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-property: opacity, top;
+}
 .button-menu {
 }
 .button {
@@ -231,7 +247,7 @@ input[type=text] {
     padding: 5px;
     align-items: center;
     background: #aaa;
-    background: linear-gradient(to bottom, #aaa, #ccc);
+    background: linear-gradient(to top, #aaa, #ccc);
     cursor: pointer;
     transition: ease-out 0.3s border-color;
 }
@@ -273,7 +289,7 @@ input[type=text] {
     padding: 5px;
     align-items: center;
     background: #aaa;
-    background: linear-gradient(to bottom, #aaa, #ccc);
+    background: linear-gradient(to top, #aaa, #ccc);
     cursor: pointer;
     transition: ease-out 0.3s border-color;
 }

@@ -3,6 +3,25 @@ function init() {
 	for (const node of document.querySelectorAll('.button')) {
 		clickAndEnter(node, buttonClick);
 	}
+	let isAnimating = false;
+	clickAndEnter(document.querySelector('#permalink'), function(e) {
+		e.preventDefault();
+		if (isAnimating) return;
+		isAnimating = true;
+		navigator.clipboard.writeText(this.href);
+		let node = document.querySelector('.copy-text');
+		node.classList.remove('hidden');
+		setTimeout(function() {
+			node.style.top = '-24px';
+			node.style.opacity = '0';
+			setTimeout(function() {
+					node.classList.add('hidden');
+					node.style.top = '';
+					node.style.opacity = '';
+					isAnimating = false;
+				}, 1000);
+			}, 5);
+	});
 	// Give input boxes autocomplete behavior
 	addAutocomplete(document.querySelector('#geneInput1'), document.GeneBrowser_geneDB, 'gene');
 	addAutocomplete(document.querySelector('#geneInput2'), document.GeneBrowser_geneDB, 'gene');
@@ -12,7 +31,161 @@ function init() {
 	document.querySelector('#monstieInput').addEventListener('input', monstieInputListener);
 	createDropdown(document.querySelector('#geneTypeSelection'), ['---', 'Power', 'Speed', 'Technical', 'No Type'], 'type');
 	createDropdown(document.querySelector('#geneElemSelection'), ['---', 'Non-Elem', 'Fire', 'Water', 'Thunder', 'Ice', 'Dragon'], 'element');
-	// TODO: Load stuff from cookie, and check args?
+	// Load stuff from storage, and check args
+	loadLocalStorage();
+	applyParams();
+	updatePermalinkAndStorage();
+}
+
+function loadLocalStorage() {
+	const storage = window.localStorage;
+	// const lastPage = storage.getItem('lastPage');
+	// Update first page
+	document.querySelector('#geneInput1').value = storage.getItem('geneInput') || '';
+	document.querySelector('#geneInput1').dispatchEvent(new Event('input'));
+	// Update second page
+	document.querySelector('#monstieInput').value = storage.getItem('monstieInput') || '';
+	document.querySelector('#monstieInput').dispatchEvent(new Event('input'));
+	// Update third page
+	let val1, val2;
+	[val1, val2] = (storage.getItem('geneFilter') || '').split(',');
+	val1 = ['---', 'Power', 'Speed', 'Technical', 'No Type'][parseInt(val1, 10)] || '---';
+	val2 = ['---', 'Non-Elem', 'Fire', 'Water', 'Thunder', 'Ice', 'Dragon'][parseInt(val2, 10)] || '---';
+	document.querySelector('#geneTypeSelection').setAttribute('data-value', val1);
+	document.querySelector('#geneElemSelection').setAttribute('data-value', val2);
+	applyGeneFilter();
+	// Update fourth page
+	let geneList = document.querySelector('#includedGeneList');
+	let content = storage.getItem('genesLookup') || '';
+	for (const geneId of content.split(',')) {
+		if (document.querySelector(`[data-value="${geneId}"]`)) return;
+		let geneEntry = document.GeneBrowser_geneDB[geneId];
+		if (geneEntry === undefined) continue;
+		let geneNode = geneToNode(geneEntry);
+		geneNode.setAttribute('data-value', geneId);
+		geneNode.setAttribute('tabindex', 0);
+		clickAndEnter(geneNode, function() {
+			this.parentNode.removeChild(this);
+			updatePermalinkAndStorage();
+			updateGeneHaver();
+		});
+		geneList.appendChild(geneNode);
+	}
+	updateGeneHaver();
+	/* Click only when everything is in place
+	switch (lastPage) {
+		case "0":
+			document.querySelector('[data-page="geneBrowser"]').click();
+			break;
+		case "1":
+			document.querySelector('[data-page="monstieBrowser"]').click();
+			break;
+		case "2":
+			document.querySelector('[data-page="geneFilter"]').click();
+			break;
+		case "3":
+			document.querySelector('[data-page="genesLookup"]').click();
+			break;
+	}
+	*/
+}
+
+function applyParams() {
+	let page, content, params = (new URL(document.location)).searchParams;
+	page = params.get('pg');
+	content = params.get('val') || '';
+	switch (page) {
+		case "0":
+			document.querySelector('#geneInput1').value = content;
+			document.querySelector('#geneInput1').focus();
+			document.querySelector('#geneInput1').dispatchEvent(new Event('input'));
+			document.querySelector('[data-page="geneBrowser"]').click();
+			break;
+		case "1":
+			document.querySelector('#monstieInput').value = content;
+			document.querySelector('#monstieInput').focus();
+			document.querySelector('#monstieInput').dispatchEvent(new Event('input'));
+			document.querySelector('[data-page="monstieBrowser"]').click();
+			break;
+		case "2":
+			let val1, val2;
+			[val1, val2] = content.split(',');
+			val1 = ['---', 'Power', 'Speed', 'Technical', 'No Type'][parseInt(val1, 10)] || '---';
+			val2 = ['---', 'Non-Elem', 'Fire', 'Water', 'Thunder', 'Ice', 'Dragon'][parseInt(val2, 10)] || '---';
+			document.querySelector('#geneTypeSelection').setAttribute('data-value', val1);
+			document.querySelector('#geneElemSelection').setAttribute('data-value', val2);
+			applyGeneFilter();
+			document.querySelector('#geneTypeSelection').focus();
+			document.querySelector('[data-page="geneFilter"]').click();
+			break;
+		case "3":
+			let geneList = document.querySelector('#includedGeneList');
+			for (const geneId of content.split(',')) {
+				if (document.querySelector(`[data-value="${geneId}"]`)) continue;
+				let geneEntry = document.GeneBrowser_geneDB[geneId];
+				if (geneEntry === undefined) continue;
+				let geneNode = geneToNode(geneEntry);
+				geneNode.setAttribute('data-value', geneId);
+				geneNode.setAttribute('tabindex', 0);
+				clickAndEnter(geneNode, function() {
+					this.parentNode.removeChild(this);
+					updatePermalinkAndStorage();
+					updateGeneHaver();
+				});
+				geneList.appendChild(geneNode);
+			}
+			updateGeneHaver();
+			document.querySelector('#geneInput2').focus();
+			document.querySelector('[data-page="genesLookup"]').click();
+			break;
+		default:
+			return;
+	}
+}
+
+function updatePermalinkAndStorage() {
+	let storage = window.localStorage;
+	let pageNum, content, pageName = document.querySelector('.selected').getAttribute('data-page');
+	switch (pageName) {
+		case 'geneBrowser':
+			pageNum = 0;
+			content = document.querySelector('#geneInput1').value;
+			break;
+		case 'monstieBrowser':
+			pageNum = 1;
+			content = document.querySelector('#monstieInput').value;
+			break;
+		case 'geneFilter':
+			pageNum = 2;
+			let val1, val2;
+			val1 = ['---', 'Power', 'Speed', 'Technical', 'No Type'].indexOf(document.querySelector('#geneTypeSelection').getAttribute('data-value'));
+			val2 = ['---', 'Non-Elem', 'Fire', 'Water', 'Thunder', 'Ice', 'Dragon'].indexOf(document.querySelector('#geneElemSelection').getAttribute('data-value'));
+			if (val1 === -1) val1 = 0;
+			if (val2 === -1) val2 = 0;
+			content = `${val1},${val2}`;
+			break;
+		case 'genesLookup':
+			pageNum = 3;
+			content = [...document.querySelectorAll('#includedGeneList>.gene-entry')].map(x => x.getAttribute('data-value'));
+			content = content.join(',');
+			break;
+		default:
+			pageNum = 0;
+			content = '';
+	}
+	document.querySelector('#permalink').href = `?pg=${pageNum}&val=${content}`;
+	history.replaceState(history.state, '', `?pg=${pageNum}&val=${content}`);
+	// Storage update
+	storage.setItem('lastPage', pageNum);
+	storage.setItem('geneInput', document.querySelector('#geneInput1').value);
+	storage.setItem('monstieInput', document.querySelector('#monstieInput').value);
+	let val1, val2;
+	val1 = ['---', 'Power', 'Speed', 'Technical', 'No Type'].indexOf(document.querySelector('#geneTypeSelection').getAttribute('data-value'));
+	val2 = ['---', 'Non-Elem', 'Fire', 'Water', 'Thunder', 'Ice', 'Dragon'].indexOf(document.querySelector('#geneElemSelection').getAttribute('data-value'));
+	if (val1 === -1) val1 = 0;
+	if (val2 === -1) val2 = 0;
+	storage.setItem('geneFilter', `${val1},${val2}`);
+	storage.setItem('genesLookup', [...document.querySelectorAll('#includedGeneList>.gene-entry')].map(x => x.getAttribute('data-value')).join(','));
 }
 
 function buttonClick() {
@@ -23,6 +196,7 @@ function buttonClick() {
 	let targetPage = this.getAttribute('data-page');
 	for (const node of document.querySelectorAll('.page')) node.classList.add('hidden');
 	document.getElementById(targetPage).classList.remove('hidden');
+	updatePermalinkAndStorage();
 }
 
 function geneInputListener1() {
@@ -76,7 +250,7 @@ function geneInputListener1() {
 				document.querySelector('#monstieInput').dispatchEvent(new Event('input'));
 				document.querySelector('[data-page="monstieBrowser"]').click();
 				document.querySelector('#monstieInput').focus();
-				document.click();
+				return;
 			});
 			listNode.appendChild(d);
 			counter++;
@@ -106,6 +280,7 @@ function geneInputListener2() {
 	geneNode.setAttribute('tabindex', 0);
 	clickAndEnter(geneNode, function() {
 		this.parentNode.removeChild(this);
+		updatePermalinkAndStorage();
 		updateGeneHaver();
 	});
 	geneList.appendChild(geneNode);
@@ -154,14 +329,14 @@ function monstieInputListener() {
 			document.querySelector('#geneInput1').dispatchEvent(new Event('input'));
 			document.querySelector('[data-page="geneBrowser"]').click();
 			document.querySelector('#geneInput1').focus();
-			document.click();
+			return;
 		});
 		node.appendChild(geneNode);
 	}
 }
 
 function updateGeneHaver() {
-	let geneIdList = [...document.querySelectorAll('#includedGeneList>div')].map(x => x.getAttribute('data-value'));
+	let geneIdList = [...document.querySelectorAll('#includedGeneList>.gene-entry')].map(x => x.getAttribute('data-value'));
 	let geneHaverList = document.querySelector('#geneHaverList');
 	while (geneHaverList.firstChild) geneHaverList.removeChild(geneHaverList.lastChild);
 	geneHaverList.classList.add('hidden');
@@ -200,7 +375,7 @@ function updateGeneHaver() {
 			document.querySelector('#monstieInput').dispatchEvent(new Event('input'));
 			document.querySelector('[data-page="monstieBrowser"]').click();
 			document.querySelector('#monstieInput').focus();
-			document.click();
+			return;
 		});
 		container.appendChild(d);
 		d = document.createElement('div');
@@ -217,17 +392,17 @@ function applyGeneFilter() {
 	let geneType = document.querySelector('#geneTypeSelection').getAttribute('data-value');
 	let geneElem = document.querySelector('#geneElemSelection').getAttribute('data-value');
 	// Update the selected option text
+	// gene type
+	document.querySelector('#selectedGeneTypeIcon').classList.remove(...document.querySelector('#selectedGeneTypeIcon').classList);
+	document.querySelector('#selectedGeneTypeIcon').classList.add('icon-wrapper');
 	if (geneType === '---') document.querySelector('#selectedGeneTypeIcon').classList.add('hidden')
-	else {
-		document.querySelector('#selectedGeneTypeIcon').classList.remove('hidden');
-		document.querySelector('#selectedGeneTypeIcon').classList.add(geneType === 'No Type' ? 'debuff' : geneType.toLowerCase());
-	}
+	else document.querySelector('#selectedGeneTypeIcon').classList.add(geneType === 'No Type' ? 'debuff' : geneType.toLowerCase());
 	document.querySelector('#selectedGeneType').innerText = geneType;
+	// gene element
+	document.querySelector('#selectedGeneElemIcon').classList.remove(...document.querySelector('#selectedGeneElemIcon').classList);
+	document.querySelector('#selectedGeneElemIcon').classList.add('skill-elem');
 	if (geneElem === '---') document.querySelector('#selectedGeneElemIcon').classList.add('hidden')
-	else {
-		document.querySelector('#selectedGeneElemIcon').classList.remove('hidden');
-		document.querySelector('#selectedGeneTypeIcon').classList.add(geneElem.toLowerCase());
-	}
+	else document.querySelector('#selectedGeneElemIcon').classList.add(geneElem.toLowerCase());
 	document.querySelector('#selectedGeneElem').innerText = geneElem;
 	// Clear existing list
 	let geneList = document.querySelector('#filterResult');
@@ -247,7 +422,7 @@ function applyGeneFilter() {
 			document.querySelector('#geneInput1').dispatchEvent(new Event('input'));
 			document.querySelector('[data-page="geneBrowser"]').click();
 			document.querySelector('#geneInput1').focus();
-			document.click();
+			return;
 		});
 		geneList.appendChild(geneNode);
 	}
@@ -315,6 +490,7 @@ function addAutocomplete(inp, obj, type) {
 					inp.dispatchEvent(new Event('input'));
 					inp.focus();
 					closeAllLists();
+					updatePermalinkAndStorage();
 				});
 				a.appendChild(b);
 				// Arbitrary limitation on dropdown size
@@ -414,6 +590,7 @@ function createDropdown(inp, obj, type) {
 				inp.focus();
 				closeAllLists();
 				applyGeneFilter();
+				updatePermalinkAndStorage();
 			});
 			a.appendChild(b);
 		}
@@ -462,10 +639,12 @@ function createDropdown(inp, obj, type) {
 }
 
 function clickAndEnter(el, func) {
-	el.addEventListener('click', func);
+	el.addEventListener('click', function(e) {
+		func.call(this, e);
+	});
 	el.addEventListener('keydown', function(e) {
 		if (e.code !== 'Enter' && e.code !== 'Space') return;
 		e.preventDefault();
-		func.call(this);
+		func.call(this, e);
 	});
 }

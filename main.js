@@ -349,6 +349,7 @@ function monstieInputListener() {
 function updateGeneHaver() {
 	let geneIdList = [...document.querySelectorAll('#includedGeneList>.gene-entry')].map(x => x.getAttribute('data-value'));
 	let geneHaverList = document.querySelector('#geneHaverList');
+	document.querySelector('#includedGeneList').previousElementSibling.innerText = 'Selected genes';
 	while (geneHaverList.firstChild) geneHaverList.removeChild(geneHaverList.lastChild);
 	geneHaverList.classList.add('hidden');
 	geneHaverList.previousElementSibling.classList.add('hidden');
@@ -363,7 +364,7 @@ function updateGeneHaver() {
 			}
 		}
 	}
-	console.log(monsties);
+	document.querySelector('#includedGeneList').previousElementSibling.innerText = `Selected genes (${geneIdList.length})`;
 	monsties = Object.entries(monsties);
 	monsties.sort(function(a, b) {
 		let at, bt;

@@ -175,7 +175,7 @@ function updatePermalinkAndStorage() {
 			content = '';
 	}
 	document.querySelector('#permalink').href = `?pg=${pageNum}&val=${content}`;
-	history.replaceState(history.state, '', `?pg=${pageNum}&val=${content}`);
+	// history.replaceState(history.state, '', `?pg=${pageNum}&val=${content}`);
 	// Storage update
 	storage.setItem('lastPage', pageNum);
 	storage.setItem('geneInput', document.querySelector('#geneInput1').value);

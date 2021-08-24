@@ -120,6 +120,7 @@ function applyParams() {
 			break;
 		case "3":
 			let geneList = document.querySelector('#includedGeneList');
+			while (geneList.firstChild) geneList.removeChild(geneList.lastChild);
 			for (const geneId of decodeString(content).map(x => x.toString())) {
 				if (document.querySelector(`[data-value="${geneId}"]`)) continue;
 				let geneEntry = document.GeneBrowser_geneDB[geneId];

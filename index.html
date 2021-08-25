@@ -18,141 +18,143 @@
 	<meta name="twitter:image" content="https://silverhawke.xyz/mhst2-genes/favicon.png" />
 </head>
 <body onload="init();">
-	<div class="container">
-		<div class="title">Book of Genes</div>
-		<div class="footnote">data from <a href="https://mhst.kiranico.com/mhs2" target=_blank>Kiranico's DB</a> | made by <a href="https://twitter.com/fluffderg" target=_blank>@fluffderg</a> | <span><a id="permalink" href="?" target=_blank title="Click to copy!">permalink</a><div class="copy-text hidden">Copied!</div></span> for current page</div>
-		<div class="button-menu">
-			<div class="button selected" tabindex=0 data-page="geneBrowser">Gene browser</div>
-			<div class="button" tabindex=0 data-page="monstieBrowser">Monstie browser</div>
-			<div class="button" tabindex=0 data-page="geneFilter">Gene filter</div>
-			<div class="button" tabindex=0 data-page="genesLookup">Genes lookup</div>
-		</div>
-		<div class="page-container">
-			<div class="page" id="geneBrowser">
-				<div class="page-row">
-					<form autocomplete="off">
-						<div class="autocomplete input-box">
-							<input id="geneInput1" type="text" placeholder="Gene name">
-						</div>
-					</form>
-					<div class="gene-info">
-						<div class="header">Gene name</div>
-						<div class="info-field"><div id="selectedGeneIcon" class="gene-icon"><div class="base"></div><div class="non-elem hidden"></div><div></div><div></div></div><div id="selectedGeneName" class="left-margin">---</div></div>
-						<div class="header">Skill name</div>
-						<div class="info-field"><div id="selectedGeneSkillIcon" class="icon-wrapper"><div class="type-icon"></div></div><div id="selectedGeneSkillElem" class="skill-elem hidden"></div><div id="selectedGeneSkillName" class="left-margin">---</div></div>
-					</div>
-				</div>
-				<div class="page-row section-header hidden" id="geneFirstRow">
-					Fixed Monsties
-				</div>
-				<div class="page-row hidden" id="fixedMonstieList">
-				</div>
-				<div class="page-row section-header hidden">
-					Random Monsties
-				</div>
-				<div class="page-row hidden" id="randomMonstieList">
-				</div>
+	<div class="outer-container">
+		<div class="container">
+			<div class="title">Book of Genes</div>
+			<div class="footnote">data from <a href="https://mhst.kiranico.com/mhs2" target=_blank>Kiranico's DB</a> | made by <a href="https://twitter.com/fluffderg" target=_blank>@fluffderg</a> | <span><a id="permalink" href="?" target=_blank title="Click to copy!">permalink</a><div class="copy-text hidden">Copied!</div></span> for current page</div>
+			<div class="button-menu">
+				<div class="button selected" tabindex=0 data-page="geneBrowser">Gene browser</div>
+				<div class="button" tabindex=0 data-page="monstieBrowser">Monstie browser</div>
+				<div class="button" tabindex=0 data-page="geneFilter">Gene filter</div>
+				<div class="button" tabindex=0 data-page="genesLookup">Genes lookup</div>
 			</div>
-			<div class="page hidden" id="monstieBrowser">
-				<div class="page-row">
-					<form autocomplete="off">
-						<div class="autocomplete input-box">
-							<input id="monstieInput" type="text" placeholder="Monstie name">
-						</div>
-					</form>
-					<div class="monstie-info">
-						<div class="monstie-col-1">
-							<div class="header">Monstie name</div>
-							<div class="info-field"><img src="img/monstie/0.png"><div id="selectedMonstieName" class="left-margin">---</div></div>
-							<div class="header">Type</div>
-							<div class="info-field"><div id="selectedMonstieTypeIcon" class="icon-wrapper"><div class="type-icon"></div></div><div id="selectedMonstieType" class="left-margin">---</div></div>
-						</div>
-						<div class="monstie-col-2">
-							<div class="info-field egg-display">
-								<img draggable="false" src="img/egg_border.png">
-								<img draggable="false" id="eggBaseImg" src="img/egg_base.png">
-								<img draggable="false" id="eggOverlayImg" src="">
-							</div>
-							<div class="header">Egg</div>
-						</div>
-					</div>
-				</div>
-				<div class="page-row section-header hidden" id="monstieFirstRow">
-					Inherent genes
-				</div>
-				<div class="page-row hidden" id="inherentGeneList">
-				</div>
-				<div class="page-row section-header hidden">
-					Random genes
-				</div>
-				<div class="page-row hidden" id="randomGeneList">
-				</div>
-			</div>
-			<div class="page hidden" id="geneFilter">
-				<div class="page-row">
-					<div class="gene-filter-selection">
-						<div>Gene type</div>
-						<div class="autocomplete">
-							<div id="geneTypeSelection" class="dropdown-select" data-value="---" tabindex=0><div id="selectedGeneTypeIcon" class="icon-wrapper hidden"><div class="type-icon"></div></div><div id="selectedGeneType" class="left-margin">---</div></div>
-						</div>
-					</div>
-					<div class="gene-filter-selection">
-						<div>Gene element</div>
-						<div class="autocomplete">
-							<div id="geneElemSelection" class="dropdown-select" data-value="---" tabindex=0><div id="selectedGeneElemIcon" class="skill-elem hidden"></div><div id="selectedGeneElem" class="left-margin">---</div></div>
-						</div>
-					</div>
-				</div>
-				<div class="page-row section-header hidden">
-					Gene list
-				</div>
-				<div class="page-row hidden" id="filterResult">
-				</div>
-			</div>
-			<div class="page column-layout hidden" id="genesLookup">
-				<div class="page-column w40">
+			<div class="page-container">
+				<div class="page" id="geneBrowser">
 					<div class="page-row">
 						<form autocomplete="off">
 							<div class="autocomplete input-box">
-								<input id="geneInput2" type="text" placeholder="Gene name">
+								<input id="geneInput1" type="text" placeholder="Gene name">
 							</div>
 						</form>
+						<div class="gene-info">
+							<div class="header">Gene name</div>
+							<div class="info-field"><div id="selectedGeneIcon" class="gene-icon"><div class="base"></div><div class="non-elem hidden"></div><div></div><div></div></div><div id="selectedGeneName" class="left-margin">---</div></div>
+							<div class="header">Skill name</div>
+							<div class="info-field"><div id="selectedGeneSkillIcon" class="icon-wrapper"><div class="type-icon"></div></div><div id="selectedGeneSkillElem" class="skill-elem hidden"></div><div id="selectedGeneSkillName" class="left-margin">---</div></div>
+						</div>
 					</div>
-					<div class="page-row section-header">
-						Selected genes
+					<div class="page-row section-header hidden" id="geneFirstRow">
+						Fixed Monsties
 					</div>
-					<div class="page-row" id="includedGeneList">
+					<div class="page-row hidden" id="fixedMonstieList">
+					</div>
+					<div class="page-row section-header hidden">
+						Random Monsties
+					</div>
+					<div class="page-row hidden" id="randomMonstieList">
 					</div>
 				</div>
-				<div class="page-column w60">
-					<div class="page-row section-header hidden">
-						Monstie list
+				<div class="page hidden" id="monstieBrowser">
+					<div class="page-row">
+						<form autocomplete="off">
+							<div class="autocomplete input-box">
+								<input id="monstieInput" type="text" placeholder="Monstie name">
+							</div>
+						</form>
+						<div class="monstie-info">
+							<div class="monstie-col-1">
+								<div class="header">Monstie name</div>
+								<div class="info-field"><img src="img/monstie/0.png"><div id="selectedMonstieName" class="left-margin">---</div></div>
+								<div class="header">Type</div>
+								<div class="info-field"><div id="selectedMonstieTypeIcon" class="icon-wrapper"><div class="type-icon"></div></div><div id="selectedMonstieType" class="left-margin">---</div></div>
+							</div>
+							<div class="monstie-col-2">
+								<div class="info-field egg-display">
+									<img draggable="false" src="img/egg_border.png">
+									<img draggable="false" id="eggBaseImg" src="img/egg_base.png">
+									<img draggable="false" id="eggOverlayImg" src="">
+								</div>
+								<div class="header">Egg</div>
+							</div>
+						</div>
 					</div>
-					<div class="page-row hidden" id="geneHaverList">
+					<div class="page-row section-header hidden" id="monstieFirstRow">
+						Inherent genes
+					</div>
+					<div class="page-row hidden" id="inherentGeneList">
+					</div>
+					<div class="page-row section-header hidden">
+						Random genes
+					</div>
+					<div class="page-row hidden" id="randomGeneList">
+					</div>
+				</div>
+				<div class="page hidden" id="geneFilter">
+					<div class="page-row">
+						<div class="gene-filter-selection">
+							<div>Gene type</div>
+							<div class="autocomplete">
+								<div id="geneTypeSelection" class="dropdown-select" data-value="---" tabindex=0><div id="selectedGeneTypeIcon" class="icon-wrapper hidden"><div class="type-icon"></div></div><div id="selectedGeneType" class="left-margin">---</div></div>
+							</div>
+						</div>
+						<div class="gene-filter-selection">
+							<div>Gene element</div>
+							<div class="autocomplete">
+								<div id="geneElemSelection" class="dropdown-select" data-value="---" tabindex=0><div id="selectedGeneElemIcon" class="skill-elem hidden"></div><div id="selectedGeneElem" class="left-margin">---</div></div>
+							</div>
+						</div>
+					</div>
+					<div class="page-row section-header hidden">
+						Gene list
+					</div>
+					<div class="page-row hidden" id="filterResult">
+					</div>
+				</div>
+				<div class="page column-layout hidden" id="genesLookup">
+					<div class="page-column w40">
+						<div class="page-row">
+							<form autocomplete="off">
+								<div class="autocomplete input-box">
+									<input id="geneInput2" type="text" placeholder="Gene name">
+								</div>
+							</form>
+						</div>
+						<div class="page-row section-header">
+							Selected genes
+						</div>
+						<div class="page-row" id="includedGeneList">
+						</div>
+					</div>
+					<div class="page-column w60">
+						<div class="page-row section-header hidden">
+							Monstie list
+						</div>
+						<div class="page-row hidden" id="geneHaverList">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
+			<defs>
+				<filter id="eggColor1" color-interpolation-filters="sRGB">
+					<feColorMatrix type="matrix" values="
+						0 0 0 0 0.7
+						0 0 0 0 0.7
+						0 0 0 0 0.7
+						0 0 0 1 0
+					"/>
+				</filter>
+				<filter id="eggColor2" color-interpolation-filters="sRGB">
+					<feColorMatrix type="matrix" values="
+						0 0 0 0 1
+						0 0 0 0 1
+						0 0 0 0 1
+						0 0 0 1 0
+					"/>
+				</filter>
+			</defs>
+		</svg>
 	</div>
-	<svg xmlns="http://www.w3.org/2000/svg" height=0 width=0>
-		<defs>
-			<filter id="eggColor1" color-interpolation-filters="sRGB">
-				<feColorMatrix type="matrix" values="
-					0 0 0 0 0.7
-					0 0 0 0 0.7
-					0 0 0 0 0.7
-					0 0 0 1 0
-				"/>
-			</filter>
-			<filter id="eggColor2" color-interpolation-filters="sRGB">
-				<feColorMatrix type="matrix" values="
-					0 0 0 0 1
-					0 0 0 0 1
-					0 0 0 0 1
-					0 0 0 1 0
-				"/>
-			</filter>
-		</defs>
-	</svg>
 </body>
 </html>

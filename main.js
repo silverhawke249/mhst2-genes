@@ -369,8 +369,8 @@ function updateGeneHaver() {
 	monsties = Object.entries(monsties);
 	monsties.sort(function(a, b) {
 		let at, bt;
-		at = a[1][0] + a[1][1];
-		bt = b[1][0] + b[1][1];
+		at = a[1][0] + a[1][1] / document.GeneBrowser_monstieGeneCount[a[0]][1];
+		bt = b[1][0] + b[1][1] / document.GeneBrowser_monstieGeneCount[b[0]][1];
 		if (at === bt) return b[1][0] - a[1][0];
 		return bt - at;
 	});
@@ -402,7 +402,7 @@ function updateGeneHaver() {
 		container.appendChild(d);
 		d = document.createElement('div');
 		d.classList.add('number-text');
-		d.innerHTML = `<div>${monstie[1][0]} inherent</div><div>${monstie[1][1]} random</div>`;
+		d.innerHTML = `<div>${monstie[1][0]} inherent</div><div>${monstie[1][1]}/${document.GeneBrowser_monstieGeneCount[monstie[0]][1]} random</div>`;
 		container.appendChild(d);
 		geneHaverList.appendChild(container);
 	}

@@ -504,6 +504,7 @@ input[type=text] {
     align-items: center;
 }
 .gene-haver-entry .number-text {
+    width: 120px;
     text-align: center;
 }
 .section-header {

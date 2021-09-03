@@ -3118,7 +3118,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [98, 121, 122, 124, 125, 131]
+            "random": [98, 121, 122, 124, 125, 131, 138]
         }
     },
     "415": {
@@ -4770,7 +4770,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [25, 26, 73, 74, 75, 82, 98, 107, 110, 116, 118, 119, 121, 122, 124, 125, 131, 138]
+            "random": [25, 26, 73, 74, 75, 82, 98, 107, 110, 116, 118, 119, 121, 122, 124, 125, 131]
         }
     },
     "533": {
@@ -4784,7 +4784,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [5, 6, 11, 13, 18, 22, 23, 25, 26, 27, 31, 72, 73, 74, 75, 82, 98, 107, 110, 116, 118, 119, 121, 122, 124, 125, 131, 138]
+            "random": [5, 6, 11, 13, 18, 22, 23, 25, 26, 27, 31, 72, 73, 74, 75, 82, 98, 107, 110, 116, 118, 119, 121, 122, 124, 125, 131]
         }
     },
     "538": {
@@ -6386,4 +6386,15 @@ document.GeneBrowser_monstieDB = {
         eggColor1: "FCECCE",
         eggColor2: "B60720"
     }
+}
+
+document.GeneBrowser_monstieGeneCount = {}
+for (const geneEntry of Object.values(document.GeneBrowser_geneDB)) {
+	for (const [idx, geneType] of Object.entries(['fixed', 'random'])) {
+		for (const monstieId of geneEntry.monsties[geneType]) {
+			if (document.GeneBrowser_monstieGeneCount[monstieId] === undefined)
+				document.GeneBrowser_monstieGeneCount[monstieId] = [0, 0];
+			document.GeneBrowser_monstieGeneCount[monstieId][idx]++;
+		}
+	}
 }

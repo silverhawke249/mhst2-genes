@@ -1353,7 +1353,7 @@ document.GeneBrowser_geneDB = {
         "skillType": "Power",
         "skillElement": "Non-Elem",
         "monsties": {
-            "fixed": [82, 118],
+            "fixed": [82, 118, 132],
             "random": []
         }
     },
@@ -1396,6 +1396,20 @@ document.GeneBrowser_geneDB = {
         "skillElement": "Non-Elem",
         "monsties": {
             "fixed": [93],
+            "random": []
+        }
+    },
+    "131": {
+        "geneName": "Dust Gene (L)",
+        "geneType": "Power Type",
+        "geneElement": "Fire",
+        "geneSize": 3,
+        "skillName": "Firepowder",
+        "isActiveSkill": true,
+        "skillType": "Power",
+        "skillElement": "Fire",
+        "monsties": {
+            "fixed": [132],
             "random": []
         }
     },
@@ -2435,6 +2449,20 @@ document.GeneBrowser_geneDB = {
             "random": []
         }
     },
+    "261": {
+        "geneName": "Explosion Gene (L)",
+        "geneType": "Speed Type",
+        "geneElement": "Fire",
+        "geneSize": 3,
+        "skillName": "Ignition Kick",
+        "isActiveSkill": true,
+        "skillType": "Speed",
+        "skillElement": "Fire",
+        "monsties": {
+            "fixed": [132],
+            "random": []
+        }
+    },
     "262": {
         "geneName": "Explosion Gene (XL)",
         "geneType": "Power Type",
@@ -2950,7 +2978,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130]
+            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130, 132]
         }
     },
     "403": {
@@ -2964,7 +2992,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [25, 26, 54, 55, 56, 57, 69, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130]
+            "random": [25, 26, 54, 55, 56, 57, 69, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130, 132]
         }
     },
     "404": {
@@ -2978,7 +3006,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130]
+            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130, 132]
         }
     },
     "405": {
@@ -3006,7 +3034,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130]
+            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130, 132]
         }
     },
     "407": {
@@ -3020,7 +3048,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [25, 26, 54, 55, 56, 57, 69, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130]
+            "random": [25, 26, 54, 55, 56, 57, 69, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130, 132]
         }
     },
     "408": {
@@ -3034,7 +3062,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130]
+            "random": [1, 5, 6, 9, 11, 13, 18, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 39, 40, 41, 43, 45, 46, 47, 48, 51, 52, 53, 54, 55, 56, 57, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 82, 83, 84, 85, 95, 96, 97, 99, 100, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 123, 126, 127, 129, 130, 132]
         }
     },
     "409": {
@@ -3538,7 +3566,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "445": {
@@ -3552,7 +3580,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [141],
-            "random": [108, 109]
+            "random": [108, 109, 132]
         }
     },
     "446": {
@@ -3566,7 +3594,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "447": {
@@ -3874,7 +3902,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "469": {
@@ -3888,7 +3916,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [108, 109]
+            "random": [108, 109, 132]
         }
     },
     "470": {
@@ -3902,7 +3930,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "471": {
@@ -3916,7 +3944,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [108, 109]
+            "random": [108, 109, 132]
         }
     },
     "472": {
@@ -3930,7 +3958,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [98, 108, 109, 121, 122, 124, 125, 131]
+            "random": [98, 108, 109, 121, 122, 124, 125, 131, 132]
         }
     },
     "473": {
@@ -4532,7 +4560,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 65, 67, 92, 93, 108, 109]
+            "random": [1, 32, 39, 65, 67, 92, 93, 108, 109, 132]
         }
     },
     "516": {
@@ -4546,7 +4574,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [108, 109]
+            "random": [108, 109, 132]
         }
     },
     "517": {
@@ -4560,7 +4588,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 12, 29, 32, 37, 39, 44, 65, 67, 71, 92, 93, 108, 109]
+            "random": [1, 12, 29, 32, 37, 39, 44, 65, 67, 71, 92, 93, 108, 109, 132]
         }
     },
     "518": {
@@ -4700,7 +4728,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 98, 108, 109, 121, 122, 124, 125, 131]
+            "random": [1, 32, 39, 98, 108, 109, 121, 122, 124, 125, 131, 132]
         }
     },
     "528": {
@@ -4714,7 +4742,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [98, 108, 109, 121, 122, 124, 125, 131, 136]
+            "random": [98, 108, 109, 121, 122, 124, 125, 131, 136, 132]
         }
     },
     "529": {
@@ -4728,7 +4756,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 98, 108, 109, 121, 122, 124, 125, 131, 136]
+            "random": [1, 32, 39, 98, 108, 109, 121, 122, 124, 125, 131, 136, 132]
         }
     },
     "530": {
@@ -4980,7 +5008,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "560": {
@@ -4994,7 +5022,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [108, 109, 137]
+            "random": [108, 109, 132, 137]
         }
     },
     "561": {
@@ -5008,7 +5036,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109, 137]
+            "random": [1, 32, 39, 108, 109, 132, 137]
         }
     },
     "562": {
@@ -5372,7 +5400,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "596": {
@@ -5386,7 +5414,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [108, 109]
+            "random": [108, 109, 132]
         }
     },
     "597": {
@@ -5400,7 +5428,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "598": {
@@ -5484,7 +5512,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "604": {
@@ -5498,7 +5526,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [108, 109]
+            "random": [108, 109, 132]
         }
     },
     "605": {
@@ -5512,7 +5540,7 @@ document.GeneBrowser_geneDB = {
         "skillElement": null,
         "monsties": {
             "fixed": [],
-            "random": [1, 32, 39, 108, 109]
+            "random": [1, 32, 39, 108, 109, 132]
         }
     },
     "606": {
@@ -6343,6 +6371,13 @@ document.GeneBrowser_monstieDB = {
         eggType: 10,
         eggColor1: "0C5DC6",
         eggColor2: "A9EAFF"
+    },
+    "132": {
+        name: "Molten Tigrex",
+        type: "Power",
+        eggType: 2,
+        eggColor1: "D80000",
+        eggColor2: "671414"
     },
     "136": {
         name: "Palamute (Non-Elem)",
